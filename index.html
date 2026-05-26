@@ -187,21 +187,36 @@
       margin-top: .3rem;
     }
 
-    /* HERO DECO */
+    /* HERO DECO — 2 rings only, repositioned far right */
     .hero-deco {
-      position: absolute; right: 5vw; top: 50%;
+      position: absolute; right: 3vw; top: 50%;
       transform: translateY(-50%);
-      width: clamp(260px, 28vw, 400px); aspect-ratio: 1;
+      width: clamp(220px, 22vw, 320px); aspect-ratio: 1;
       display: grid; place-items: center;
     }
+
     .deco-ring {
       position: absolute; border-radius: 50%;
-      border: 1px solid rgba(0,245,212,.12);
     }
-    .deco-ring:nth-child(1) { width:100%; height:100%; animation: spin 40s linear infinite; }
-    .deco-ring:nth-child(2) { width:72%; height:72%; animation: spin 25s linear infinite reverse; border-style: dashed; }
-    .deco-ring:nth-child(3) { width:44%; height:44%; border-color: rgba(255,184,48,.2); animation: spin 18s linear infinite; }
+
+    /* Ring 1 — outer dashed, bright green */
+    .deco-ring:nth-child(1) {
+      width: 100%; height: 100%;
+      border: 2.5px dashed rgba(56, 245, 0, 0.42);
+      box-shadow: 0 0 18px rgba(56, 245, 0, 0.12);
+      animation: spin 28s linear infinite;
+    }
+
+    /* Ring 2 — inner solid, bright yellow */
+    .deco-ring:nth-child(2) {
+      width: 58%; height: 58%;
+      border: 3px solid rgba(255, 245, 6, 0.44);
+      box-shadow: 0 0 14px rgba(255, 245, 6, 0.15);
+      animation: spin 16s linear infinite reverse;
+    }
+
     @keyframes spin { to { transform: rotate(360deg); } }
+
     .deco-center {
       position: relative; z-index: 2;
       font-family: var(--code); font-size: .68rem; color: var(--cyan);
@@ -530,6 +545,7 @@
       <div><span class="stat-num">8+</span><div class="stat-label">Tech Stacks</div></div>
     </div>
   </div>
+  <!-- 2 rings only — outermost ring removed to reveal full surname -->
   <div class="hero-deco" aria-hidden="true">
     <div class="deco-ring"></div>
     <div class="deco-ring"></div>
